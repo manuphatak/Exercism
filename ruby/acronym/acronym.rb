@@ -1,5 +1,5 @@
 module Acronym
   def self.abbreviate(long_name)
-    long_name.tr('-', ' ').split.map { |word| word[0] }.join.upcase
+    long_name.scan(/\b[a-zA-Z]/).join.upcase
   end
 end
