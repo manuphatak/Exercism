@@ -1,7 +1,5 @@
 module Pangram
   def self.pangram?(sentence)
-    sentence_letters = sentence.downcase.chars.uniq
-
-    ('a'..'z').all? { |letter| sentence_letters.include?(letter) }
+    ('a'..'z').all? { |letter| sentence.downcase.include?(letter) }
   end
 end
