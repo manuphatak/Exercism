@@ -16,17 +16,9 @@ class SpaceAge
     @seconds = seconds
   end
 
-  private
-
-  def respond_to_missing?(name)
-    ORBITAL_PERIOD.key?(name)
-  end
-
-  def method_missing(name)
-    if respond_to_missing?(name)
-      @seconds / (EARTH_YEAR * ORBITAL_PERIOD[name])
-    else
-      super
+  ORBITAL_PERIOD.each do |name, period|
+    define_method(name) do
+      @seconds / (EARTH_YEAR * period)
     end
   end
 end
