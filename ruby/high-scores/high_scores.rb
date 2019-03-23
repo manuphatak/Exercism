@@ -10,16 +10,10 @@ class HighScores
   end
 
   def personal_best
-    sorted_scores.first
+    scores.max
   end
 
   def personal_top_three
-    sorted_scores.take(3)
-  end
-
-  private
-
-  def sorted_scores
-    @scores.sort.reverse
+    scores.max(3)
   end
 end
