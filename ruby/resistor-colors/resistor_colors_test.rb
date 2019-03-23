@@ -9,17 +9,17 @@ class ResistorColorsTest < Minitest::Test
   end
 
   def test_blue_and_grey
-    skip
+    # skip
     assert_equal 68, ResistorColors.value(%w[blue grey])
   end
 
   def test_yellow_and_violet
-    skip
+    # skip
     assert_equal 47, ResistorColors.value(%w[yellow violet])
   end
 
   def test_orange_and_orange
-    skip
+    # skip
     assert_equal 33, ResistorColors.value(%w[orange orange])
   end
 end
