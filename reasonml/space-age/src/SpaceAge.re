@@ -9,8 +9,8 @@ type planet =
   | Uranus;
 
 let earthSeconds = 31557600.0;
-let earthYears = (planet: planet) =>
-  switch (planet) {
+let earthYears =
+  fun
   | Mercury => 0.2408467
   | Venus => 0.61519726
   | Earth => 1.0
@@ -18,8 +18,7 @@ let earthYears = (planet: planet) =>
   | Jupiter => 11.862615
   | Saturn => 29.447498
   | Uranus => 84.016846
-  | Neptune => 164.79132
-  };
+  | Neptune => 164.79132;
 
 let ageOn = (planet: planet, age: float) =>
   age /. earthYears(planet) /. earthSeconds;
