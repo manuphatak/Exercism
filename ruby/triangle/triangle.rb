@@ -1,31 +1,29 @@
 class Triangle
   def initialize(sides)
-    @a = sides[0]
-    @b = sides[1]
-    @c = sides[2]
+    @sides = sides
   end
 
   def equilateral?
-    triangle? && a == b && b == c
+    triangle? && sides.uniq.length == 1
   end
 
   def isosceles?
-    triangle? && (a == b || b == c || c == a)
+    triangle? && sides.uniq.length <= 2
   end
 
   def scalene?
-    triangle? && (a != b && b != c)
+    triangle? && sides.uniq.length == 3
   end
 
   private
 
-  attr_reader :a, :b, :c
+  attr_reader :sides
 
   def triangle?
-    [a, b, c].all?(&:positive?) && combinations.all? { |(a, b, c)| a + b >= c }
+    sides.all?(&:positive?) && satisfies_inequality?
   end
 
-  def combinations
-    [[a, b, c], [b, c, a], [c, a, b]]
+  def satisfies_inequality?
+    sides.min(2).sum >= sides.max
   end
 end
