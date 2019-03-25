@@ -1,4 +1,8 @@
 {
   "prettier.tslintIntegration": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "ruby.format": "rubocop",
+  "[ruby]": {
+    "editor.formatOnSaveTimeout": 1500
+  }
 }
