@@ -1,10 +1,4 @@
 class Squares
-  private
-
-  attr_reader :length
-
-  public
-
   def initialize(length)
     @length = length
   end
@@ -20,4 +14,8 @@ class Squares
   def difference
     square_of_sum - sum_of_squares
   end
+
+  private
+
+  attr_reader :length
 end
