@@ -8,7 +8,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
     )
   end
 
@@ -35,7 +35,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
     )
   end
 
@@ -44,7 +44,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
     )
   end
 
@@ -71,7 +71,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
     )
   end
 
@@ -89,7 +89,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
     )
   end
 end
