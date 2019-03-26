@@ -2,6 +2,6 @@
   "prettier.tslintIntegration": true,
   "editor.formatOnSave": true,
   "[ruby]": {
-    "editor.formatOnSaveTimeout": 1500
+    "editor.formatOnSave": false
   }
 }
