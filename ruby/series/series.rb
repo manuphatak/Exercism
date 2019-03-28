@@ -6,7 +6,7 @@ class Series
   def slices(length)
     raise ArgumentError if length > input.length
 
-    (input.length - length + 1).times.to_a.map { |i| input.slice(i, length) }
+    input.split('').each_cons(length).map(&:join)
   end
 
   private
