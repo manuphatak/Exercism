@@ -137,7 +137,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_mixed_line_length
-    skip
     input = <<~INPUT.strip
       The longest line.
       A long line.
