@@ -35,7 +35,7 @@ class WordCountTest < Minitest::Test
 
   def test_ignore_punctuation
     phrase = Phrase.new('car: carpet as java: javascript!!&@$%^&')
-    counts = { 'car' => 1, 'carpet' => 1, 'as' => 1, 'java' => 1, 'javascript' => 1 }
+    counts = { 'car' => 1, 'carpet' => 1, 'as' => 1, 'java' => 1, 'javascript' => 1 } # rubocop:disable  Metrics/LineLength
     assert_equal counts, phrase.word_count
   end
 
@@ -53,13 +53,13 @@ class WordCountTest < Minitest::Test
 
   def test_with_apostrophes
     phrase = Phrase.new("First: don't laugh. Then: don't cry.")
-    counts = { 'first' => 1, "don't" => 2, 'laugh' => 1, 'then' => 1, 'cry' => 1 }
+    counts = { 'first' => 1, "don't" => 2, 'laugh' => 1, 'then' => 1, 'cry' => 1 } # rubocop:disable  Metrics/LineLength
     assert_equal counts, phrase.word_count
   end
 
   def test_with_quotations
     phrase = Phrase.new("Joe can't tell between 'large' and large.")
-    counts = { 'joe' => 1, "can't" => 1, 'tell' => 1, 'between' => 1, 'large' => 2, 'and' => 1 }
+    counts = { 'joe' => 1, "can't" => 1, 'tell' => 1, 'between' => 1, 'large' => 2, 'and' => 1 } # rubocop:disable  Metrics/LineLength
     assert_equal counts, phrase.word_count
   end
 
