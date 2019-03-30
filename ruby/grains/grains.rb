@@ -6,6 +6,6 @@ module Grains
   end
 
   def self.total
-    64.times.map { |n| square(n + 1) }.sum
+    18_446_744_073_709_551_615
   end
 end
