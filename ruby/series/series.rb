@@ -6,7 +6,7 @@ class Series
   def slices(length)
     raise ArgumentError if length > input.length
 
-    input.split('').each_cons(length).map(&:join)
+    input.each_char.each_cons(length).map(&:join)
   end
 
   private
