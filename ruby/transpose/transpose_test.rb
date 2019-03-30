@@ -4,7 +4,6 @@ require_relative 'transpose'
 # Common test data version: 1.1.0 92bc877
 class TransposeTest < Minitest::Test
   def test_empty_string
-    # skip
     input = <<~INPUT.strip
 
     INPUT
@@ -17,7 +16,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_two_characters_in_a_row
-    skip
     input = <<~INPUT.strip
       A1
     INPUT
@@ -31,7 +29,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_two_characters_in_a_column
-    skip
     input = <<~INPUT.strip
       A
       1
@@ -45,7 +42,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_simple
-    skip
+
     input = <<~INPUT.strip
       ABC
       123
@@ -61,7 +58,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_single_line
-    skip
     input = <<~INPUT.strip
       Single line.
     INPUT
@@ -85,7 +81,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_first_line_longer_than_second_line
-    skip
+
     input = <<~INPUT.strip
       The fourth line.
       The fifth line.
@@ -114,7 +110,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_second_line_longer_than_first_line
-    skip
+
     input = <<~INPUT.strip
       The first line.
       The second line.
@@ -175,7 +171,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_square
-    skip
     input = <<~INPUT.strip
       HEART
       EMBER
@@ -196,7 +191,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_rectangle
-    skip
     input = <<~INPUT.strip
       FRACTURE
       OUTLINED
@@ -219,7 +213,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_triangle
-    skip
     input = <<~INPUT.strip
       T
       EE
