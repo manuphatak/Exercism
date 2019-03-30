@@ -4,7 +4,7 @@ class Anagram
   end
 
   def match(candidates)
-    candidates.select(&method(:match?))
+    candidates.filter(&method(:match?))
   end
 
   private
@@ -12,7 +12,14 @@ class Anagram
   attr_reader :test_word
 
   def match?(candidate)
-    !test_word.casecmp(candidate).zero? &&
-      test_word.downcase.each_char.sort == candidate.downcase.each_char.sort
+    !identical?(candidate) && sorted_chars(test_word) == sorted_chars(candidate)
+  end
+
+  def identical?(candidate)
+    test_word.casecmp(candidate).zero?
+  end
+
+  def sorted_chars(word)
+    word.downcase.each_char.sort
   end
 end
