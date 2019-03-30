@@ -6,6 +6,14 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Lint/MissingCopEnableDirective:
+  Exclude:
+    - "**/*_test.rb"
+
 Metrics/ClassLength:
+  Exclude:
+    - "**/*_test.rb"
+
+Metrics/MethodLength:
   Exclude:
     - "**/*_test.rb"
