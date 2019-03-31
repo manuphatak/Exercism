@@ -4,9 +4,7 @@ class Phrase
   end
 
   def word_count
-    words.each_with_object(Hash.new(0)) do |word, counter|
-      counter[word] = counter[word] + 1
-    end
+    words.each_with_object(Hash.new(0)) { |word, counter| counter[word] += 1 }
   end
 
   private
