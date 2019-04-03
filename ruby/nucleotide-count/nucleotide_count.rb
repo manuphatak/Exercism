@@ -6,13 +6,13 @@ class Nucleotide
   end
 
   def initialize(dna)
-    raise ArgumentError unless dna.chars.all? { |c| TYPES.include?(c) }
+    @dna_chars = dna.chars
 
-    @dna = dna
+    raise ArgumentError unless dna_chars.all? { |c| TYPES.include?(c) }
   end
 
   def count(nucleotide)
-    dna.chars.count { |c| nucleotide == c }
+    dna_chars.count(nucleotide)
   end
 
   def histogram
@@ -21,5 +21,5 @@ class Nucleotide
 
   private
 
-  attr_reader :dna
+  attr_reader :dna_chars
 end
