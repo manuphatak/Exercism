@@ -17,3 +17,6 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   Exclude:
     - "**/*_test.rb"
+
+Metrics/LineLength:
+  IgnoreCopDirectives: true
