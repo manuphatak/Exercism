@@ -6,7 +6,7 @@ class Sieve
   def primes
     pointer = 0
 
-    mark_primes(pointer += 1) while in_range?(pointer)
+    pointer += 1 while mark_primes(pointer)
 
     numbers
   end
@@ -21,10 +21,7 @@ class Sieve
 
   def mark_primes(index)
     step = numbers[index]
-    ((step * 2)..limit).step(step).each { |n| numbers.delete(n) }
-  end
 
-  def in_range?(pointer)
-    numbers.length <= pointer
+    ((step * 2)..limit).step(step).each { |n| numbers.delete(n) } if step
   end
 end
