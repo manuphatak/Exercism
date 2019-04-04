@@ -1,39 +1,25 @@
 module Prime
-  class << self
-    def nth(n) # rubocop:disable Naming/UncommunicativeMethodParamName
-      raise ArgumentError if n <= 0 || n > 10_001
+  def self.nth(n) # rubocop:disable Naming/UncommunicativeMethodParamName
+    raise ArgumentError if n <= 0 || n > 10_001
 
-      Sieve.new(range(n)).primes[n - 1]
-    end
-
-    private
-
-    def range(n) # rubocop:disable Naming/UncommunicativeMethodParamName, Metrics/MethodLength
-      if n <= 4
-        10
-      elsif n <= 25
-        100
-      elsif n <= 168
-        1000
-      elsif n <= 1229
-        10_000
-      else
-        100_000
-      end
-    end
+    Sieve.new(100_000).primes[n - 1]
   end
 
   class Sieve
     def initialize(limit)
-      @limit = limit
+      @upper = limit * (Math.log(limit) + 2)
     end
 
     def primes
-      set = (2..@limit).to_a
-      (2..@limit).each do |i|
-        set.reject! { |j| j > i && (j % i).zero? }
-      end
-      set
+      (2..Math.sqrt(upper))
+        .each_with_object([nil, nil] + [*2..upper]) do |i, primes|
+          (i**2).step(upper, i) { |j| primes[j] = nil } if primes[i]
+        end
+        .compact
     end
+
+    private
+
+    attr_reader :upper
   end
 end
