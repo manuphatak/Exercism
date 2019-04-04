@@ -1,6 +1,8 @@
 module Hamming
   def self.compute(left, right)
-    raise ArgumentError if left.length != right.length
+    if left.length != right.length
+      raise(ArgumentError, 'Expecting strands of equal length.')
+    end
 
     left.chars.zip(right.chars).count { |(a, b)| a != b }
   end
