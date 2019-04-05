@@ -6,13 +6,13 @@ let always = (x, _) => x;
 
 let isQuestion = Js.String.endsWith("?");
 let isUpperCase = equals(Js.String.toUpperCase, identity);
-let notLowerCase = equals(Js.String.toLowerCase, identity) |> not;
+let notLowerCase = equals(Js.String.toLowerCase, identity)->not;
 let isShouting = both(isUpperCase, notLowerCase);
 let isShoutingQuestion = both(isShouting, isQuestion);
-let isEmpty = equals(always(0), Js.String.length);
+let isEmpty = equals(Js.String.length, always(0));
 
-let response = input =>
-  switch (input) {
+let toResponse = input =>
+  switch () {
   | _ when isEmpty(input) => "Fine. Be that way!"
   | _ when isShoutingQuestion(input) => "Calm down, I know what I'm doing!"
   | _ when isQuestion(input) => "Sure."
@@ -20,4 +20,4 @@ let response = input =>
   | _ => "Whatever."
   };
 
-let hey = input => input->Js.String.trim->response;
+let hey = input => input->Js.String.trim->toResponse;
