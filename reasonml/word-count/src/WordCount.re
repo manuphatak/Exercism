@@ -9,7 +9,7 @@ let incCount = (dict, word) => {
   Js.Dict.set(
     dict,
     word,
-    Belt.Option.getWithDefault(Js.Dict.get(dict, word), 0)->inc,
+    Js.Dict.get(dict, word)->Belt.Option.getWithDefault(_, 0)->inc,
   );
 
   dict;
