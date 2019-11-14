@@ -42,7 +42,7 @@ class AcronymTest < Minitest::Test
     assert_equal(
       'ROTFLSHTMDCOALM',
       Acronym.abbreviate(
-        'Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me' # rubocop:disable Metrics/LineLength
+        'Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me'
       )
     )
   end

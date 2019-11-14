@@ -83,7 +83,7 @@ class TriangleTest < Minitest::Test
     )
   end
 
-  def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_1 # rubocop:disable Metrics/LineLength
+  def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_1
     triangle = Triangle.new([1, 1, 3])
     refute(
       triangle.isosceles?,
@@ -91,7 +91,7 @@ class TriangleTest < Minitest::Test
     )
   end
 
-  def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_2 # rubocop:disable Metrics/LineLength
+  def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_2
     triangle = Triangle.new([1, 3, 1])
     refute(
       triangle.isosceles?,
@@ -99,7 +99,7 @@ class TriangleTest < Minitest::Test
     )
   end
 
-  def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_3 # rubocop:disable Metrics/LineLength
+  def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_3
     triangle = Triangle.new([3, 1, 1])
     refute(
       triangle.isosceles?,
@@ -139,7 +139,7 @@ class TriangleTest < Minitest::Test
     )
   end
 
-  def test_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different # rubocop:disable Metrics/LineLength
+  def test_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different
     triangle = Triangle.new([7, 3, 2])
     refute(
       triangle.scalene?,

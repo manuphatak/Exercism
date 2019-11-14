@@ -8,7 +8,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
     )
   end
 
@@ -35,7 +35,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
     )
   end
 
@@ -44,7 +44,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
     )
   end
 
@@ -71,7 +71,7 @@ class PangramTest < Minitest::Test
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
     )
   end
 
@@ -84,12 +84,12 @@ class PangramTest < Minitest::Test
     )
   end
 
-  def test_upper_and_lower_case_versions_of_the_same_character_should_not_be_counted_separately # rubocop:disable Metrics/LineLength
+  def test_upper_and_lower_case_versions_of_the_same_character_should_not_be_counted_separately
     sentence = 'the quick brown fox jumps over with lazy FX'
     result = Pangram.pangram?(sentence)
     refute(
       result,
-      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram" # rubocop:disable Metrics/LineLength
+      "Expected false, got: #{result.inspect}. #{sentence.inspect} is NOT a pangram"
     )
   end
 end
