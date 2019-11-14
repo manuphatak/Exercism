@@ -1,7 +1,17 @@
 {
-  "prettier.tslintIntegration": true,
   "editor.formatOnSave": true,
   "[ruby]": {
     "editor.formatOnSave": false
-  }
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#009cab",
+    "titleBar.inactiveBackground": "#009cab99",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#009cab",
+    "statusBarItem.hoverBackground": "#00cade",
+    "statusBar.foreground": "#e7e7e7",
+    "tab.activeBorder": "#00cade"
+  },
+  "peacock.color": "#009cab"
 }
