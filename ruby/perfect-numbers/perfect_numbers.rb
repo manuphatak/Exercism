@@ -1,5 +1,30 @@
-# Write your code for the 'Perfect Numbers' exercise in this file. Make the tests in
-# `perfect_numbers_test.rb` pass.
-#
-# To get started with TDD, see the `README.md` file in your
-# `ruby/perfect-numbers` directory.
+class PerfectNumber
+  def self.classify(number)
+    raise RuntimeError if number <= 1
+
+    new(number).classify
+  end
+
+  def initialize(number)
+    @number = number
+  end
+
+  def classify
+    case factors.sum <=> number
+    when -1
+      'deficient'
+    when 0
+      'perfect'
+    when 1
+      'abundant'
+    end
+  end
+
+  def factors
+    (1...number).filter { |n| (number % n).zero? }
+  end
+
+  private
+
+  attr_reader :number
+end
