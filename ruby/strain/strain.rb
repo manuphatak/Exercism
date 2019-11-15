@@ -1,5 +1,15 @@
-# Write your code for the 'Strain' exercise in this file. Make the tests in
-# `strain_test.rb` pass.
-#
-# To get started with TDD, see the `README.md` file in your
-# `ruby/strain` directory.
+module Strain
+  refine Array do
+    def keep
+      self.class.new.tap do |array|
+        each { |item| array << item if yield item }
+      end
+    end
+
+    def discard
+      self.class.new.tap do |array|
+        each { |item| array << item unless yield item }
+      end
+    end
+  end
+end
