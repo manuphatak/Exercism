@@ -22,6 +22,6 @@ class ArmstrongNumber
   private
 
   def digits
-    @digits ||= number.to_s.split('').map(&:to_i)
+    @digits ||= number.digits
   end
 end
