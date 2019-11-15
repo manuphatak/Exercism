@@ -1,12 +1,12 @@
 module Accumulate
-  refine Array do
+  refine Enumerable do
     def accumulate
       if block_given?
-        self.class.new.tap do |result|
-          each { |item| result << yield(item) }
+        self.class.new.tap do |copy|
+          each { |item| copy << yield(item) }
         end
       else
-        self
+        enum_for
       end
     end
   end

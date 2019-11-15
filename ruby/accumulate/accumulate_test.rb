@@ -3,6 +3,7 @@ require_relative 'accumulate'
 
 class ArrayTest < Minitest::Test
   using Accumulate
+
   def test_empty_accumulation
     assert_equal [], ([].accumulate { |e| e * e })
   end
