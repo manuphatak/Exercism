@@ -1,5 +1,7 @@
-# Write your code for the 'ETL' exercise in this file. Make the tests in
-# `etl_test.rb` pass.
-#
-# To get started with TDD, see the `README.md` file in your
-# `ruby/etl` directory.
+class ETL
+  def self.transform(input)
+    input.each_pair.each_with_object({}) do |(value, chars), result|
+      chars.each { |char| result[char.downcase] = value }
+    end
+  end
+end
