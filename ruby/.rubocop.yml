@@ -1,5 +1,9 @@
 inherit_from: .rubocop_todo.yml
 
+require:
+  - rubocop-minitest
+  - rubocop-performance
+
 Style/Documentation:
   Enabled: false
 
