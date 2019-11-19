@@ -5,7 +5,7 @@ class Proverb
   end
 
   def to_s
-    phrases(subjects.length - 1) +
+    phrases +
       "And all for the want of a #{qualified_subject}."
   end
 
@@ -13,8 +13,8 @@ class Proverb
 
   attr_reader :subjects, :qualifier
 
-  def phrases(count)
-    (1..count).map { |n| phrase(n) }.join
+  def phrases
+    (1...subjects.length).map { |n| phrase(n) }.join
   end
 
   def phrase(number)
