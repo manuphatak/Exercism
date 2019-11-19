@@ -14,11 +14,11 @@ class Proverb
   attr_reader :subjects, :qualifier
 
   def phrases
-    (1...subjects.length).map { |n| phrase(n) }.join
+    subjects.each_cons(2).map { |desired, lost| phrase(desired, lost) }.join
   end
 
-  def phrase(number)
-    "For want of a #{subjects[number - 1]} the #{subjects[number]} was lost.\n"
+  def phrase(new_thing, asset_we_had)
+    "For want of a #{new_thing} the #{asset_we_had} was lost.\n"
   end
 
   def qualified_subject
