@@ -8,7 +8,7 @@ class BinarySearch
     @index = index
   end
 
-  def search_for(number)
+  def search_for(number) # rubocop:disable Metrics/AbcSize
     raise RuntimeError unless list.include?(number)
 
     case list[middle] <=> number

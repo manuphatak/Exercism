@@ -1,0 +1,16 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#0f6a07",
+    "titleBar.inactiveBackground": "#0f6a0799",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#0f6a07",
+    "statusBarItem.hoverBackground": "#169a0a",
+    "statusBar.foreground": "#e7e7e7",
+    "tab.activeBorder": "#169a0a"
+  },
+  "peacock.color": "#0f6a07",
+  "[ruby]": {
+    "editor.formatOnSave": false
+  }
+}
