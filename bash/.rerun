@@ -1,0 +1,3 @@
+--pattern **/*.sh
+--no-notify
+--clear
