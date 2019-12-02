@@ -1,15 +1,15 @@
 {
   "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#0f6a07",
-    "titleBar.inactiveBackground": "#0f6a0799",
+    "titleBar.activeBackground": "#cc342d",
+    "titleBar.inactiveBackground": "#cc342d99",
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveForeground": "#e7e7e799",
-    "statusBar.background": "#0f6a07",
-    "statusBarItem.hoverBackground": "#169a0a",
+    "statusBar.background": "#cc342d",
+    "statusBarItem.hoverBackground": "#d95953",
     "statusBar.foreground": "#e7e7e7",
-    "tab.activeBorder": "#169a0a"
+    "tab.activeBorder": "#d95953"
   },
-  "peacock.color": "#0f6a07",
+  "peacock.color": "#CC342D",
   "[ruby]": {
     "editor.formatOnSave": false
   }

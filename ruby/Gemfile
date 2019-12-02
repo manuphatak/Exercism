@@ -4,8 +4,12 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
+gem 'awesome_print'
+gem 'debase'
 gem 'minitest'
+gem 'pry'
 gem 'rerun'
 gem 'rubocop'
 gem 'rubocop-minitest'
 gem 'rubocop-performance'
+gem 'ruby-debug-ide'
