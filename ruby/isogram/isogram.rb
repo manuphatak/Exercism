@@ -10,13 +10,7 @@ class Isogram
   end
 
   def isogram?
-    repeating_characters.empty?
-  end
-
-  def repeating_characters
-    countable_characters
-      .each_with_object(Hash.new(0)) { |char, counter| counter[char] += 1 }
-      .select { |_, count| count > 1 }.keys
+    countable_characters.uniq.length == countable_characters.length
   end
 
   private
@@ -24,6 +18,7 @@ class Isogram
   attr_reader :input
 
   def countable_characters
-    input.downcase.split('').reject { |char| IGNORED_CHARACTERS.include? char }
+    @countable_characters ||=
+      input.downcase.split('').reject { |c| IGNORED_CHARACTERS.include? c }
   end
 end

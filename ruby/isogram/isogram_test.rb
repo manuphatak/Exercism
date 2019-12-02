@@ -3,26 +3,6 @@ require_relative 'isogram'
 
 # Common test data version: 1.7.0 74869e8
 class IsogramTest < Minitest::Test
-  def test_list_of_repeating_characters_with_one_duplicated_character
-    input = 'eleven'
-    assert_equal ['e'], Isogram.new(input).repeating_characters
-  end
-
-  def test_list_of_repeating_characters_with_duplicated_character_in_mixed_case_lowercase_first
-    input = 'alphAbet'
-    assert_equal ['a'], Isogram.new(input).repeating_characters
-  end
-
-  def test_list_of_repeating_characters_with_duplicated_hyphen
-    input = 'six-year-old'
-    assert_equal [], Isogram.new(input).repeating_characters
-  end
-
-  def test_list_of_repeating_characters_with_spaces
-    input = 'Emily Jung Schwartzkopf'
-    assert_equal [], Isogram.new(input).repeating_characters
-  end
-
   def test_empty_string
     input = ''
     assert Isogram.isogram?(input), "Expected true, '#{input}' is an isogram"
