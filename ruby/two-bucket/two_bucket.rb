@@ -1,3 +1,4 @@
+# rubocop:disable all
 require 'awesome_print'
 
 DEBUG = false
