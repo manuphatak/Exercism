@@ -8,7 +8,6 @@ class Scrabble
   end
 
   def score
-    puts characters.inspect
     characters.sum(&:score)
   end
 
