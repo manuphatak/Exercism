@@ -31,10 +31,10 @@ class Search
   attr_reader :target
 
   def self.setup(node, start, target, other)
-    new(node.fill(start), target, node.fill(other))
+    new(start: node.fill(start), target: target, exclude: node.fill(other))
   end
 
-  def initialize(start, target, exclude)
+  def initialize(start:, target:, exclude:)
     @start = start
     @target = target
     @history = History.new
@@ -103,6 +103,7 @@ class Node
     [one, two].find { |bucket| bucket.current != target }
   end
 
+  # hash and eql? allow Node to be keys in a Hash
   def hash
     bucket_amounts.hash
   end
@@ -118,6 +119,8 @@ class Node
   end
 
   def parents
+    # self with 3 parents `self.parent.parent.parent` unfolds to
+    # [self, self.parent, self.parent.parent, self.parent.parent.parent]
     Enumerator.unfold(self, &:parent).to_a
   end
 
@@ -170,7 +173,7 @@ class Bucket
   attr_reader :name, :current, :max, :min
 
   def initialize(current:, max:, min: 0, name:)
-    @current = current
+    @current = current.clamp(min, max)
     @max = max
     @min = min
     @name = name
@@ -189,21 +192,11 @@ class Bucket
   end
 
   def -(other)
-    Bucket.new(
-      current: (current - other).clamp(min, max),
-      max: max,
-      min: min,
-      name: name
-    )
+    Bucket.new(current: current - other, max: max, min: min, name: name)
   end
 
   def +(other)
-    Bucket.new(
-      current: (current + other).clamp(min, max),
-      max: max,
-      min: min,
-      name: name
-    )
+    Bucket.new(current: current + other, max: max, min: min, name: name)
   end
 
   def ==(other)
