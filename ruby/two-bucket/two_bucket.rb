@@ -1,15 +1,9 @@
 class TwoBucket
   def initialize(one, two, target, start)
-    node = Node.for(one: one, two: two, start: start)
+    node = Node.for(one: one, two: two)
+    other = start == 'one' ? 'two' : 'one'
 
-    @target = target
-    @search = Search.new(node, target)
-
-    if start == 'one' && one > two
-      search.discover!(node.fill('two').empty('one'))
-    elsif start == 'two' && two > one
-      search.discover!(node.fill('one').empty('two'))
-    end
+    @search = Search.setup(node, start, target, other)
   end
 
   def moves
@@ -17,11 +11,11 @@ class TwoBucket
   end
 
   def goal_bucket
-    node.goal_bucket(target).name
+    node.goal_bucket(search.target).name
   end
 
   def other_bucket
-    node.other_bucket(target).current
+    node.other_bucket(search.target).current
   end
 
   private
@@ -34,14 +28,20 @@ class TwoBucket
 end
 
 class Search
+  def self.setup(node, start, target, other)
+    new(node.fill(start), target).tap do |search|
+      search.discover!(node.fill(other))
+    end
+  end
+
+  attr_reader :target
   def initialize(start, target)
     @start = start
     @target = target
-
     @history = History.new
+    @queue = [start]
 
     history.discover!(start)
-    @queue = [start]
   end
 
   def discover!(node)
@@ -51,7 +51,6 @@ class Search
   def breadth_first
     # https://en.wikipedia.org/wiki/Breadth-first_search
     while (vector = queue.shift)
-
       history.discover!(vector)
 
       return vector if vector.include?(target)
@@ -59,8 +58,8 @@ class Search
       vector.neighbors.each do |n|
         next if history.discovered?(n)
 
-        history.discover!(n)
         n.parent = vector
+        history.discover!(n)
         queue.push(n)
       end
     end
@@ -70,15 +69,15 @@ class Search
 
   private
 
-  attr_reader :start, :target, :history, :queue
+  attr_reader :start, :history, :queue
 end
 
 class Node
-  def self.for(one:, two:, start:)
+  def self.for(one:, two:)
     new(
       one: Bucket.new(current: 0, max: one, name: 'one'),
       two: Bucket.new(current: 0, max: two, name: 'two')
-    ).fill(start)
+    )
   end
 
   attr_accessor :parent
@@ -107,10 +106,6 @@ class Node
     [one, two].find { |bucket| bucket.current != target }
   end
 
-  def inspect
-    "<Node @one=#{one.inspect}, @two=#{two.inspect}, @parent=#{parent.class}>"
-  end
-
   def hash
     bucket_amounts.hash
   end
@@ -131,10 +126,6 @@ class Node
 
   def fill(name)
     send("fill_#{name}")
-  end
-
-  def empty(name)
-    send("empty_#{name}")
   end
 
   protected
@@ -216,10 +207,6 @@ class Bucket
     Bucket.new(current: current + other, max: max, min: min, name: name)
   end
 
-  def inspect
-    "<Bucket::#{name} #{current}/#{max}>"
-  end
-
   def ==(other)
     current == other.current && max == other.max
   end
@@ -235,6 +222,7 @@ class History < Hash
   end
 end
 
+# https://stackoverflow.com/questions/35530324/create-a-ruby-enumerable-from-a-first-element-and-a-function-to-get-the-next-el
 def Enumerator.unfold(start)
   new do |y|
     loop do

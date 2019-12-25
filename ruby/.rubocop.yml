@@ -19,10 +19,19 @@ Metrics/ClassLength:
     - "**/*_test.rb"
 
 Metrics/MethodLength:
+  Max: 11
   Exclude:
     - "**/*_test.rb"
+    - bob/bob.rb
+    - matching-brackets/matching_brackets.rb
 
 Metrics/LineLength:
   IgnoreCopDirectives: true
   Exclude:
     - "**/*_test.rb"
+    - scrabble-score/scrabble_score.rb
+
+Metrics/AbcSize:
+  Max: 16
+  Exclude:
+    - binary-search/binary_search.rb
