@@ -28,24 +28,20 @@ class TwoBucket
 end
 
 class Search
+  attr_reader :target
+
   def self.setup(node, start, target, other)
-    new(node.fill(start), target).tap do |search|
-      search.discover!(node.fill(other))
-    end
+    new(node.fill(start), target, node.fill(other))
   end
 
-  attr_reader :target
-  def initialize(start, target)
+  def initialize(start, target, exclude)
     @start = start
     @target = target
     @history = History.new
     @queue = [start]
 
     history.discover!(start)
-  end
-
-  def discover!(node)
-    history.discover!(node)
+    history.discover!(exclude)
   end
 
   def breadth_first
@@ -73,6 +69,8 @@ class Search
 end
 
 class Node
+  attr_accessor :parent
+
   def self.for(one:, two:)
     new(
       one: Bucket.new(current: 0, max: one, name: 'one'),
@@ -80,7 +78,6 @@ class Node
     )
   end
 
-  attr_accessor :parent
   def initialize(one:, two:)
     @one = one
     @two = two
