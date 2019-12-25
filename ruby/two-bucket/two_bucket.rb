@@ -20,7 +20,7 @@ class TwoBucket
 
   private
 
-  attr_reader :search, :target
+  attr_reader :search
 
   def node
     @node ||= search.breadth_first
@@ -150,19 +150,19 @@ class Node
   end
 
   def fill_one
-    Node.new(one: one.fill, two: two) if one.fillable?
+    Node.new(one: one + Float::INFINITY, two: two) if one.fillable?
   end
 
   def fill_two
-    Node.new(one: one, two: two.fill) if two.fillable?
+    Node.new(one: one, two: two + Float::INFINITY) if two.fillable?
   end
 
   def empty_one
-    Node.new(one: one.empty, two: two) if one.emptyable?
+    Node.new(one: one - Float::INFINITY, two: two) if one.emptyable?
   end
 
   def empty_two
-    Node.new(one: one, two: two.empty) if two.emptyable?
+    Node.new(one: one, two: two - Float::INFINITY) if two.emptyable?
   end
 end
 
@@ -174,14 +174,6 @@ class Bucket
     @max = max
     @min = min
     @name = name
-  end
-
-  def fill
-    Bucket.new(current: max, max: max, min: min, name: name)
-  end
-
-  def empty
-    Bucket.new(current: 0, max: max, min: min, name: name)
   end
 
   def capacity
@@ -197,11 +189,21 @@ class Bucket
   end
 
   def -(other)
-    Bucket.new(current: current - other, max: max, min: min, name: name)
+    Bucket.new(
+      current: (current - other).clamp(min, max),
+      max: max,
+      min: min,
+      name: name
+    )
   end
 
   def +(other)
-    Bucket.new(current: current + other, max: max, min: min, name: name)
+    Bucket.new(
+      current: (current + other).clamp(min, max),
+      max: max,
+      min: min,
+      name: name
+    )
   end
 
   def ==(other)
