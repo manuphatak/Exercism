@@ -20,6 +20,7 @@ abbreviate = map (toUpper . head) . words . clean
 -- >>> clean "Halley's"
 -- "Halleys"
 --
+
 clean :: String -> String
 clean [] = []
 clean (x : x' : xs) | isLower x && isUpper x' = x : ' ' : clean (x' : xs)
