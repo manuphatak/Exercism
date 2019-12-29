@@ -52,10 +52,10 @@ cases =
          , input       = "First In, First Out"
          , expected    = "FIFO"
          }
---   , Case { description = "all caps word"
---          , input       = "GNU Image Manipulation Program"
---          , expected    = "GIMP"
---          }
+  , Case { description = "all caps word"
+         , input       = "GNU Image Manipulation Program"
+         , expected    = "GIMP"
+         }
   , Case { description = "punctuation without whitespace"
          , input       = "Complementary metal-oxide semiconductor"
          , expected    = "CMOS"
