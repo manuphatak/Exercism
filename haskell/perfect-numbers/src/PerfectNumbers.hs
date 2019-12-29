@@ -7,7 +7,6 @@ where
 data Classification = Deficient | Perfect | Abundant deriving (Eq, Show)
 
 classify :: Int -> Maybe Classification
-
 classify n
   | n <= 0
   = Nothing
