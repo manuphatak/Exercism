@@ -3,15 +3,14 @@
 An anagram is a rearrangement of letters to form a new word.
 Given a word and a list of candidates, select the sublist of anagrams of the given word.
 
-Given `"listen"` and a list of candidates like `"enlists" "google"
-"inlets" "banana"` the program should return a list containing
+Given `"listen"` and a list of candidates like `"enlists" "google" "inlets" "banana"` the program should return a list containing
 `"inlets"`.
 
 ## Hints
 
 To complete this exercise you need to implement the function `anagramsFor`,
-that takes a *word* and a group of *words*, returning the ones that are
-anagrams of the given *word*.
+that takes a _word_ and a group of _words_, returning the ones that are
+anagrams of the given _word_.
 
 If it is your first time solving this exercise, it is recommended that you
 stick to the provided signature:
@@ -23,14 +22,12 @@ anagramsFor :: String -> [String] -> [String]
 Later, it may be a good idea to revisit this problem and play with other data
 types and libraries:
 
-- `Text`, from package *text*.
-- `Sequence` and `Set`, from package *containers*.
-- `MultiSet`, from package *multiset*
+- `Text`, from package _text_.
+- `Sequence` and `Set`, from package _containers_.
+- `MultiSet`, from package _multiset_
 
 The test suite was intentionally designed to accept almost any type signature
 that makes sense, so you are encouraged to find the one you think is the best.
-
-
 
 ## Getting Started
 
@@ -68,7 +65,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -82,11 +79,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Inspired by the Extreme Startup game [https://github.com/rchatley/extreme_startup](https://github.com/rchatley/extreme_startup)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
