@@ -5,24 +5,13 @@ where
 
 import           Data.List
 import           Data.Char
+import           Data.Function
 
 anagramsFor :: String -> [String] -> [String]
 anagramsFor xs = filter $ isAnagram xs
 
 isAnagram :: String -> String -> Bool
-isAnagram xs ys | all (uncurry matchLower) $ zip xs ys = False
-                | otherwise                            = isAnagram' xs ys
+isAnagram = both ((==) `on` sort . map toLower) ((/=) `on` map toLower)
 
-isAnagram' :: String -> String -> Bool
-isAnagram' "" "" = True
-isAnagram' "" _  = False
-isAnagram' _  "" = False
-
-isAnagram' subject (x : xs) =
-  let next = deleteBy matchLower x subject
-  in  if next == subject then isAnagram' subject "" else isAnagram' next xs
-
-
-matchLower :: Char -> Char -> Bool
-matchLower a b = toLower a == toLower b
-
+both :: (a -> b -> Bool) -> (a -> b -> Bool) -> a -> b -> Bool
+both fn1 fn2 xs ys = fn1 xs ys && fn2 xs ys
