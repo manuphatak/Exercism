@@ -22,16 +22,18 @@ toString (Clock h m) = printf "%02d:%02d" h m
 addDelta :: Int -> Int -> Clock -> Clock
 addDelta h m (Clock h' m') = fromHourMin (h + h') (m + m')
 
--- >>> rollover (0, -1) 60
--- (-1,59)
---
--- >>> rollover (0, 61) 60
--- (1,1)
---
--- >>> rollover (0, 24) 24
--- (1,0)
---
 
+{-|
+>>> rollover (0, -1) 60
+(-1,59)
+
+>>> rollover (0, 61) 60
+(1,1)
+
+>>> rollover (0, 24) 24
+(1,0)
+
+-}
 rollover :: (Ord a, Num a) => (a, a) -> a -> (a, a)
 rollover (y, x) constraint
   | x < 0           = rollover (y - 1, x + constraint) constraint
