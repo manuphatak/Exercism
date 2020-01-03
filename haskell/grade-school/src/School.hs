@@ -7,33 +7,24 @@ module School
   )
 where
 
-import           Data.List
-import           Data.Function
-import           Data.Maybe
+import           Data.List                      ( sort
+                                                , groupBy
+                                                )
+import           Data.Function                  ( on )
+import           Data.Maybe                     ( fromMaybe )
 
-data School = Enrollment Int String School | EmptySchool
+type Enrollment = (Int, String)
+type School = [Enrollment]
 
 add :: Int -> String -> School -> School
-add = Enrollment
+add gradeNum name school = (gradeNum, name) : school
 
 empty :: School
-empty = EmptySchool
+empty = []
 
 grade :: Int -> School -> [String]
 grade gradeNum = fromMaybe [] . lookup gradeNum . sorted
 
 sorted :: School -> [(Int, [String])]
-sorted = groupOn ((==) `on` fst) . sort . toList
-
-toList :: School -> [(Int, String)]
-toList (Enrollment gradeNum name school) = (gradeNum, name) : toList school
-toList EmptySchool                       = []
-
--- >>> groupOn ((==) `on` fst) $ sort [(2, "a"), (2, "b"), (3, "c")]
--- [(2,["a","b"]),(3,["c"])]
---
-groupOn :: ((a, b) -> (a, b) -> Bool) -> [(a, b)] -> [(a, [b])]
-groupOn fn = map collectGroups . groupBy fn
- where
-  collectGroups s@(x : _) = (fst x, map snd s)
-  collectGroups []        = error "this should never happen"
+sorted =
+  map (\s@(x : _) -> (fst x, map snd s)) . groupBy ((==) `on` fst) . sort
