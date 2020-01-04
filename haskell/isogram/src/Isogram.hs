@@ -3,14 +3,12 @@ module Isogram
   )
 where
 
-import qualified Data.Text                     as T
-import           Data.Text                      ( Text )
+import           Data.List
+import           Data.Char
 
-isIsogram :: Text -> Bool
-isIsogram = not . any hasDuplicate . T.tails . T.toLower . T.filter
-  (\c -> c /= '-' && c /= ' ')
+isIsogram :: String -> Bool
+isIsogram = not . any hasDuplicate . tails . map toLower . filter isLetter
+ where
+  hasDuplicate []       = False
+  hasDuplicate (x : xs) = x `elem` xs
 
-hasDuplicate :: Text -> Bool
-hasDuplicate text = case T.uncons text of
-  Just (t, tail') -> T.foldl (\acc c -> acc || c == t) False tail'
-  Nothing         -> False
