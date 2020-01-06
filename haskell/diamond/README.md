@@ -6,17 +6,17 @@ supplied letter at the widest point.
 
 ## Requirements
 
-* The first row contains one 'A'.
-* The last row contains one 'A'.
-* All rows, except the first and last, have exactly two identical letters.
-* All rows have as many trailing spaces as leading spaces. (This might be 0).
-* The diamond is horizontally symmetric.
-* The diamond is vertically symmetric.
-* The diamond has a square shape (width equals height).
-* The letters form a diamond shape.
-* The top half has the letters in ascending order.
-* The bottom half has the letters in descending order.
-* The four corners (containing the spaces) are triangles.
+- The first row contains one 'A'.
+- The last row contains one 'A'.
+- All rows, except the first and last, have exactly two identical letters.
+- All rows have as many trailing spaces as leading spaces. (This might be 0).
+- The diamond is horizontally symmetric.
+- The diamond is vertically symmetric.
+- The diamond has a square shape (width equals height).
+- The letters form a diamond shape.
+- The top half has the letters in ascending order.
+- The bottom half has the letters in descending order.
+- The four corners (containing the spaces) are triangles.
 
 ## Examples
 
@@ -92,8 +92,6 @@ diamond :: Char -> Maybe [Text]
 
 This part is entirely optional.
 
-
-
 ## Getting Started
 
 Please refer to the [installation](https://exercism.io/tracks/haskell/installation)
@@ -130,7 +128,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -144,11 +142,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Seb Rose [http://claysnow.co.uk/recycling-tests-in-tdd/](http://claysnow.co.uk/recycling-tests-in-tdd/)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
