@@ -10,7 +10,7 @@ In this exercise you have to create some code that counts the number of
 mines adjacent to a given empty square and replaces that square with the
 count.
 
-The board is a rectangle composed of blank space (' ') characters. A mine 
+The board is a rectangle composed of blank space (' ') characters. A mine
 is represented by an asterisk ('\*') character.
 
 If a given space has no adjacent mines at all, leave that square blank.
@@ -35,7 +35,6 @@ And your code will transform it into this:
 ·2*2·
 ·111·
 ```
-
 
 ## Getting Started
 
@@ -73,7 +72,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -87,7 +86,8 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
