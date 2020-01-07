@@ -3,12 +3,14 @@ module Minesweeper
   )
 where
 
-import           Data.List
-import           Data.Char
+import           Data.List                      ( groupBy
+                                                , sort
+                                                )
+import           Data.Char                      ( intToDigit )
 import qualified Data.Map.Strict               as M
 import           Data.Map.Strict                ( Map )
-import           Data.Maybe
-import           Data.Function
+import           Data.Maybe                     ( catMaybes )
+import           Data.Function                  ( on )
 
 data Point = Point { pointY :: Int, pointX :: Int   } deriving (Show, Eq, Ord)
 type Board a = Map Point a
