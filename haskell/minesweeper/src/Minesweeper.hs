@@ -48,8 +48,12 @@ neighbors point board = catMaybes
   , y <- [-1 .. 1]
   , not (x == 0 && y == 0)
   ]
--- >>> board = toBoard ["***", "* *", "** "]
+-- >>> board = toBoard ["123", "456", "789"]
+-- >>> neighbors (Point 0 0) board
 -- >>> neighbors (Point 1 1) board
--- "******* "
+-- >>> neighbors (Point 0 0) $ toBoard ["   ", "123", "   "]
+-- "425"
+-- "14728369"
+-- "1 2"
 --
 
