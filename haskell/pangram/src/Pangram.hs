@@ -7,16 +7,12 @@ import           Data.Char                      ( toLower
                                                 , isAscii
                                                 , isLetter
                                                 )
-import           Data.List                      ( group
-                                                , sort
-                                                )
+import qualified Data.Set                      as Set
 
 isPangram :: String -> Bool
 isPangram =
-  (['a' .. 'z'] ==)
-    . map head
-    . group
-    . sort
+  (==) (Set.fromDistinctAscList ['a' .. 'z'])
+    . Set.fromList
     . map toLower
     . filter isAscii
     . filter isLetter
