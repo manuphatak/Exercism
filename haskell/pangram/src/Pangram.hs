@@ -1,4 +1,17 @@
-module Pangram (isPangram) where
+module Pangram
+  ( isPangram
+  )
+where
+
+import           Data.Char
+import           Data.List
 
 isPangram :: String -> Bool
-isPangram text = error "You need to implement this function."
+isPangram =
+  (['a' .. 'z'] ==)
+    . map head
+    . group
+    . sort
+    . map toLower
+    . filter isAscii
+    . filter isLetter
