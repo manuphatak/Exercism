@@ -30,8 +30,9 @@ summaryOfGifts day = (toSentence . reverse . take day)
   ]
 
 nth :: Int -> String
-nth day =
-  [ "first"
+nth day = ordinals !! pred day where
+  ordinals =
+    [ "first"
     , "second"
     , "third"
     , "fourth"
@@ -44,7 +45,6 @@ nth day =
     , "eleventh"
     , "twelfth"
     ]
-    !! pred day
 
 toSentence :: [String] -> String
 toSentence []  = []
