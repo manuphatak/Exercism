@@ -3,8 +3,13 @@ module Pangram
   )
 where
 
-import           Data.Char
-import           Data.List
+import           Data.Char                      ( toLower
+                                                , isAscii
+                                                , isLetter
+                                                )
+import           Data.List                      ( group
+                                                , sort
+                                                )
 
 isPangram :: String -> Bool
 isPangram =
