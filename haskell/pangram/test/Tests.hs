@@ -13,7 +13,9 @@ import           Test.Hspec.Runner              ( configFastFail
                                                 , hspecWith
                                                 )
 
-import           Pangram                        ( isPangram )
+import           Pangram                        ( isPangram
+                                                , isPangram'
+                                                )
 
 main :: IO ()
 main = hspecWith defaultConfig { configFastFail = True } specs
@@ -21,8 +23,13 @@ main = hspecWith defaultConfig { configFastFail = True } specs
 specs :: Spec
 specs = describe "isPangram" $ for_ cases test
  where
-  test Case {..} =
-    it description $ isPangram (fromString input) `shouldBe` expected
+  test Case {..} = do
+    it ("String: " ++ description)
+      $          isPangram (fromString input)
+      `shouldBe` expected
+    it ("Set:    " ++ description)
+      $          isPangram' (fromString input)
+      `shouldBe` expected
 
 data Case = Case { description :: String
                  , input       :: String
@@ -77,11 +84,10 @@ cases =
          , expected    = True
          }
 
-        {-
+
         -- The following test can be enabled for String-based solutions:
-        , Case { description = "with termination as soon as all letters have occurred"
-               , input       = "abcdefghijklmnopqrstuvwxyz" ++ [undefined]
-               , expected    = True
-               }
-        -- -}
+  , Case { description = "with termination as soon as all letters have occurred"
+         , input       = "abcdefghijklmnopqrstuvwxyz" ++ [undefined]
+         , expected    = True
+         }
   ]
