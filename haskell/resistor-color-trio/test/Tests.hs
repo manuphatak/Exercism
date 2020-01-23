@@ -25,8 +25,8 @@ main = hspecWith defaultConfig { configFastFail = True } specs
 
 specs :: Spec
 specs = do
-  describe "label" $ for_ cases testLabel
   describe "ohms" $ for_ cases testOhms
+  describe "label" $ for_ cases testLabel
  where
   testLabel Case {..} =
     it (description input) $ label input `shouldBe` fromString expectedLabel
