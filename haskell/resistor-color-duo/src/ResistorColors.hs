@@ -1,4 +1,8 @@
-module ResistorColors (Color(..), value) where
+module ResistorColors
+  ( Color(..)
+  , value
+  )
+where
 
 data Color =
     Black
