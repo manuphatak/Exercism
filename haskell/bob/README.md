@@ -35,22 +35,20 @@ As an optional extension to this exercise, you can
 - Add `- text` to your list of dependencies in package.yaml.
 - Import `Data.Text` in [the following way](https://hackernoon.com/4-steps-to-a-better-imports-list-in-haskell-43a3d868273c):
 
-    ```haskell
-    import qualified Data.Text as T
-    import           Data.Text (Text)
-    ```
+  ```haskell
+  import qualified Data.Text as T
+  import           Data.Text (Text)
+  ```
 
 - You can now write e.g. `responseFor :: Text -> Text` and refer to `Data.Text` combinators as e.g. `T.isSuffixOf`.
 - Look up the documentation for [`Data.Text`](https://hackage.haskell.org/package/text/docs/Data-Text.html),
 - You can then replace all occurrences of `String` with `Text` in Bob.hs:
 
-    ```haskell
-    responseFor :: Text -> Text
-    ```
+  ```haskell
+  responseFor :: Text -> Text
+  ```
 
 This part is entirely optional.
-
-
 
 ## Getting Started
 
@@ -88,7 +86,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -102,11 +100,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=06](http://pine.fm/LearnToProgram/?Chapter=06)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
