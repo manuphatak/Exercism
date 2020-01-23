@@ -16,6 +16,7 @@ If the result is 0, then it is a valid ISBN-10, otherwise it is invalid.
 ## Example
 
 Let's take the ISBN-10 `3-598-21508-8`. We plug it in to the formula, and get:
+
 ```
 (3 * 10 + 5 * 9 + 9 * 8 + 8 * 7 + 2 * 6 + 1 * 5 + 5 * 4 + 0 * 3 + 8 * 2 + 8 * 1) mod 11 == 0
 ```
@@ -29,7 +30,6 @@ Putting this into place requires some thinking about preprocessing/parsing of th
 
 The program should be able to verify ISBN-10 both with and without separating dashes.
 
-
 ## Caveats
 
 Converting from strings to numbers can be tricky in certain languages.
@@ -37,10 +37,9 @@ Now, it's even trickier since the check digit of an ISBN-10 may be 'X' (represen
 
 ## Bonus tasks
 
-* Generate a valid ISBN-13 from the input ISBN-10 (and maybe verify it again with a derived verifier).
+- Generate a valid ISBN-13 from the input ISBN-10 (and maybe verify it again with a derived verifier).
 
-* Generate valid ISBN, maybe even from a given starting ISBN.
-
+- Generate valid ISBN, maybe even from a given starting ISBN.
 
 ## Getting Started
 
@@ -78,7 +77,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -92,11 +91,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Converting a string into a number and some basic processing utilizing a relatable real world example. [https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digit_calculation](https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digit_calculation)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
