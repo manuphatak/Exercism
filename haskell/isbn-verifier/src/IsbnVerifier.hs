@@ -4,13 +4,14 @@ module IsbnVerifier
 where
 
 import           Data.Char
+import           Control.Monad
 
 isbn :: String -> Bool
-isbn = isValid . mapM translateChar . filter (/= '-')
- where
-  translateChar 'X' = Just 10
-  translateChar c | isDigit c = Just (read [c] :: Int)
-                  | otherwise = Nothing
+isbn = isValid . zipWithM translateChar [0 ..] . filter (/= '-') where
+  translateChar :: (Eq a, Num a) => a -> Char -> Maybe Int
+  translateChar 9 'X' = Just 10
+  translateChar _ c | isDigit c = Just (read [c] :: Int)
+                    | otherwise = Nothing
 
 isValid :: Integral a => Maybe [a] -> Bool
 isValid (Just [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10]) =
