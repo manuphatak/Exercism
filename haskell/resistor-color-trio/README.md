@@ -59,17 +59,15 @@ As an optional extension to this exercise, you can
 - Add `- text` to your list of dependencies in package.yaml.
 - Import `Data.Text` in [the following way](https://hackernoon.com/4-steps-to-a-better-imports-list-in-haskell-43a3d868273c):
 
-    ```haskell
-    import qualified Data.Text as T
-    import           Data.Text (Text)
-    ```
+  ```haskell
+  import qualified Data.Text as T
+  import           Data.Text (Text)
+  ```
 
 - You can now write e.g. `label :: Resistor -> Text` and refer to `Data.Text` combinators as e.g. `T.pack`.
 - Look up the documentation for [`Data.Text`](https://hackage.haskell.org/package/text/docs/Data-Text.html),
 
 This part is entirely optional.
-
-
 
 ## Getting Started
 
@@ -107,7 +105,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -121,11 +119,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Maud de Vries, Erik Schierboom [https://github.com/exercism/problem-specifications/issues/1549](https://github.com/exercism/problem-specifications/issues/1549)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
