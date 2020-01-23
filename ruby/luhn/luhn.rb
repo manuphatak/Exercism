@@ -5,11 +5,10 @@ class Luhn
 
   def initialize(input)
     @input = input
-
   end
 
   def valid?
-    valid_chars? && digits.length > 1 && digits.sum % 10 == 0
+    valid_chars? && digits.length > 1 && (digits.sum(&:value) % 10).zero?
   end
 
   private
@@ -20,21 +19,41 @@ class Luhn
     /^[\d\s]+$/ =~ input
   end
 
-  def digits
-    @digits ||= input.scan(/\d/).reverse.map.with_index { |n, i| digit(n.to_i, i)}.reverse
+  def input_digits
+    @input_digits ||= input.scan(/\d/)
   end
-end
 
+  def digits
+    @digits ||= input_digits.map.with_index do |n, i|
+      digit_for(n.to_i, i, input_digits.length)
+    end
+  end
 
-# TODO class factory
-def digit(n, i)
-  if i % 2  == 0
-    n
-  else
-    if n > 4
-      n * 2 - 9
+  def digit_for(number, index, size)
+    if (index.even? && size.even?) || (index.odd? && size.odd?)
+      DoubleDigit
     else
-      n * 2
+      Digit
+    end.new(number)
+  end
+
+  class Digit
+    attr_reader :number
+
+    def initialize(number)
+      @number = number
+    end
+
+    alias value number
+  end
+
+  class DoubleDigit < Digit
+    def value
+      if number > 4
+        number * 2 - 9
+      else
+        number * 2
+      end
     end
   end
 end
