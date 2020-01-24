@@ -1,14 +1,15 @@
 module LinkedList
-    ( LinkedList
-    , datum
-    , fromList
-    , isNil
-    , new
-    , next
-    , nil
-    , reverseLinkedList
-    , toList
-    ) where
+  ( LinkedList
+  , datum
+  , fromList
+  , isNil
+  , new
+  , next
+  , nil
+  , reverseLinkedList
+  , toList
+  )
+where
 
 data LinkedList a = Dummy deriving (Eq, Show)
 
