@@ -10,7 +10,7 @@ import           Data.List                      ( intercalate
 rhyme :: String
 rhyme = intercalate "\n\n" verses ++ "\n"
  where
-  verses = map verse . filter (not . null) . reverse . tails $ defaultPhrases
+  verses = map verse . tail . reverse . tails $ defaultPhrases
   verse phrases = "This is " ++ unwords phrases ++ "."
 
 defaultPhrases :: [String]
