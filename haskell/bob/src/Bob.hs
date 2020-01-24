@@ -15,22 +15,22 @@ responseFor input
   | otherwise               = "Whatever."
 
 
-trim :: String -> String
-trim = dropWhileEnd isSpace . dropWhile isSpace
+trimEnd :: String -> String
+trimEnd = dropWhileEnd isSpace
 
 
 isEmpty :: String -> Bool
-isEmpty = null . trim
+isEmpty = null . trimEnd
 
 isQuestion :: String -> Bool
-isQuestion = (== '?') . last . trim
+isQuestion = isSuffixOf "?" . trimEnd
 
 
 isYelling :: String -> Bool
 isYelling = (&&) <$> hasLetters <*> allUpper
  where
   hasLetters = any isLetter
-  allUpper   = (==) <$> id <*> map toUpper
+  allUpper   = not . any isLower
 
 isYellingQuestion :: String -> Bool
 isYellingQuestion = (&&) <$> isYelling <*> isQuestion
