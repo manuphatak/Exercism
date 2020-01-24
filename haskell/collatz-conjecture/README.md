@@ -15,17 +15,16 @@ Starting with n = 12, the steps would be as follows:
 
 0. 12
 1. 6
-2. 3
-3. 10
-4. 5
-5. 16
-6. 8
-7. 4
-8. 2
-9. 1
+1. 3
+1. 10
+1. 5
+1. 16
+1. 8
+1. 4
+1. 2
+1. 1
 
 Resulting in 9 steps. So for input n = 12, the return value would be 9.
-
 
 ## Getting Started
 
@@ -63,7 +62,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -77,11 +76,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
-An unsolved problem in mathematics named after mathematician Lothar Collatz [https://en.wikipedia.org/wiki/3x_%2B_1_problem](https://en.wikipedia.org/wiki/3x_%2B_1_problem)
+An unsolved problem in mathematics named after mathematician Lothar Collatz [https://en.wikipedia.org/wiki/3x\_%2B_1_problem](https://en.wikipedia.org/wiki/3x_%2B_1_problem)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
