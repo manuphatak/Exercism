@@ -12,37 +12,30 @@ module LinkedList
 where
 
 data LinkedList a
-    = Node a (LinkedList a)
-    | Empty deriving (Eq, Show)
+  = Empty
+  | Node { datum :: a, next :: LinkedList a }
+    deriving (Eq, Show)
 
 
-datum :: LinkedList a -> a
-datum (Node a _) = a
-datum Empty      = error "empty LinkedList"
+instance Foldable LinkedList where
+  foldr _  z Empty         = z
+  foldr fn z (Node a node) = fn a (foldr fn z node)
 
 fromList :: [a] -> LinkedList a
 fromList = foldr new nil
 
 isNil :: LinkedList a -> Bool
-isNil Empty      = True
-isNil (Node _ _) = False
+isNil Empty = True
+isNil _     = False
 
 new :: a -> LinkedList a -> LinkedList a
 new = Node
-
-next :: LinkedList a -> LinkedList a
-next (Node _ xs) = xs
-next Empty       = error "empty LinkedList"
 
 nil :: LinkedList a
 nil = Empty
 
 reverseLinkedList :: LinkedList a -> LinkedList a
-reverseLinkedList ys = rev ys nil where
-  rev Empty       a = a
-  rev (Node x xs) a = rev xs (new x a)
-
+reverseLinkedList = foldl (flip new) nil
 
 toList :: LinkedList a -> [a]
-toList (Node x xs) = x : toList xs
-toList Empty       = []
+toList = foldr (:) []
