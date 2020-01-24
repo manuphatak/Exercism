@@ -1,7 +1,11 @@
-module House (rhyme) where
+module House
+  ( rhyme
+  )
+where
 
 rhyme :: String
-rhyme = "This is the house that Jack built.\n\
+rhyme =
+  "This is the house that Jack built.\n\
         \\n\
         \This is the malt\n\
         \that lay in the house that Jack built.\n\
