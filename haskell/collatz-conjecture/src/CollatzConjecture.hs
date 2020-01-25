@@ -3,18 +3,11 @@ module CollatzConjecture
   )
 where
 
-import           Data.List
-
 collatz :: Integer -> Maybe Integer
 collatz n | n < 1     = Nothing
-          | otherwise = indexOf 1 . iterate conjecture $ n
+          | otherwise = Just . conjectureCount 0 $ n
 
-
-conjecture :: Integral a => a -> a
-conjecture n | even n    = n `div` 2
-             | otherwise = 3 * n + 1
-
-indexOf :: Eq a => a -> [a] -> Maybe Integer
-indexOf needle haystack = toInteger <$> elemIndex needle haystack
-
-
+conjectureCount :: (Enum a, Integral b) => a -> b -> a
+conjectureCount count n | n == 1    = count
+                        | even n    = conjectureCount (succ count) (n `div` 2)
+                        | otherwise = conjectureCount (succ count) (3 * n + 1)
