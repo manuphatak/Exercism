@@ -1,15 +1,20 @@
-{-# LANGUAGE TupleSections #-}
-
 module CollatzConjecture
   ( collatz
   )
 where
 
-collatz :: Integer -> Maybe Integer
-collatz n = fst <$> (conjectureCount . (0, )) n
+import           Data.List
 
-conjectureCount :: (Enum a, Eq b, Integral b) => (a, b) -> Maybe (a, b)
-conjectureCount (count, n) | n < 0     = Nothing
-                           | n == 1    = Just (count, n)
-                           | even n    = conjectureCount (succ count, n `div` 2)
-                           | otherwise = conjectureCount (succ count, 3 * n + 1)
+collatz :: Integer -> Maybe Integer
+collatz n | n < 1     = Nothing
+          | otherwise = indexOf 1 . iterate conjecture $ n
+
+
+conjecture :: Integral a => a -> a
+conjecture n | even n    = n `div` 2
+             | otherwise = 3 * n + 1
+
+indexOf :: Eq a => a -> [a] -> Maybe Integer
+indexOf needle haystack = toInteger <$> elemIndex needle haystack
+
+
