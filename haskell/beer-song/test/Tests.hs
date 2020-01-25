@@ -1,11 +1,19 @@
-import Control.Monad     (unless)
-import Test.Hspec        (Spec, describe, expectationFailure, it, shouldBe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
+import           Control.Monad                  ( unless )
+import           Test.Hspec                     ( Spec
+                                                , describe
+                                                , expectationFailure
+                                                , it
+                                                , shouldBe
+                                                )
+import           Test.Hspec.Runner              ( configFastFail
+                                                , defaultConfig
+                                                , hspecWith
+                                                )
 
-import Beer (song)
+import           Beer                           ( song )
 
 main :: IO ()
-main = hspecWith defaultConfig {configFastFail = True} specs
+main = hspecWith defaultConfig { configFastFail = True } specs
 
 specs :: Spec
 
@@ -14,30 +22,38 @@ specs = describe "song" $ do
           -- First we test the input, line by line, to give more
           -- useful error messages.
 
-          it "matches lines" $ sequence_ lineAssertions
+  it "matches lines" $ sequence_ lineAssertions
 
-          -- Finally, because testing lines we are unable
-          -- to detect a missing newline at the end of the
-          -- lyrics, we test the full song.
+  -- Finally, because testing lines we are unable
+  -- to detect a missing newline at the end of the
+  -- lyrics, we test the full song.
 
-          it "matches full song" $ song `shouldBe` lyrics
-  where
+  it "matches full song" $ song `shouldBe` lyrics
+ where
 
-    lineAssertions = zipWith checkLine [1 :: Int ..] $ zipMaybe (lines song) (lines lyrics)
+  lineAssertions =
+    zipWith checkLine [1 :: Int ..] $ zipMaybe (lines song) (lines lyrics)
 
-    checkLine lineno (got, want) =
-      unless (got == want) $
-        expectationFailure $ "mismatch at line " ++ show lineno ++ "\nexpected: " ++ show want ++ "\n but got: " ++ show got
+  checkLine lineno (got, want) =
+    unless (got == want)
+      $  expectationFailure
+      $  "mismatch at line "
+      ++ show lineno
+      ++ "\nexpected: "
+      ++ show want
+      ++ "\n but got: "
+      ++ show got
 
-    zipMaybe    []     []  = []
-    zipMaybe (x:xs)    []  = (Just x , Nothing) : zipMaybe xs []
-    zipMaybe    []  (y:ys) = (Nothing, Just y ) : zipMaybe [] ys
-    zipMaybe (x:xs) (y:ys) = (Just x , Just y ) : zipMaybe xs ys
+  zipMaybe []       []       = []
+  zipMaybe (x : xs) []       = (Just x, Nothing) : zipMaybe xs []
+  zipMaybe []       (y : ys) = (Nothing, Just y) : zipMaybe [] ys
+  zipMaybe (x : xs) (y : ys) = (Just x, Just y) : zipMaybe xs ys
 
 -- Lyrics extracted from `exercism/problem-specifications` on 2016-10-03.
 
 lyrics :: String
-lyrics = "99 bottles of beer on the wall, 99 bottles of beer.\n\
+lyrics =
+  "99 bottles of beer on the wall, 99 bottles of beer.\n\
          \Take one down and pass it around, 98 bottles of beer on the wall.\n\
          \\n\
          \98 bottles of beer on the wall, 98 bottles of beer.\n\

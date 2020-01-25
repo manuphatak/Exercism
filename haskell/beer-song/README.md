@@ -311,9 +311,9 @@ Go to the store and buy some more, 99 bottles of beer on the wall.
 Did you get the tests passing and the code clean? If you want to, these
 are some additional things you could try:
 
-* Remove as much duplication as you possibly can.
-* Optimize for readability, even if it means introducing duplication.
-* If you've removed all the duplication, do you have a lot of
+- Remove as much duplication as you possibly can.
+- Optimize for readability, even if it means introducing duplication.
+- If you've removed all the duplication, do you have a lot of
   conditionals? Try replacing the conditionals with polymorphism, if it
   applies in this language. How readable is it?
 
@@ -338,8 +338,6 @@ Take your time.
 Change one thing at a time and check if your solution still passes the tests.
 
 Have fun!
-
-
 
 ## Getting Started
 
@@ -377,7 +375,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -391,11 +389,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Learn to Program by Chris Pine [http://pine.fm/LearnToProgram/?Chapter=06](http://pine.fm/LearnToProgram/?Chapter=06)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
