@@ -1,6 +1,10 @@
-module DNA (nucleotideCounts, Nucleotide(..)) where
+module DNA
+  ( nucleotideCounts
+  , Nucleotide(..)
+  )
+where
 
-import Data.Map (Map)
+import           Data.Map                       ( Map )
 
 data Nucleotide = A | C | G | T deriving (Eq, Ord, Show)
 
