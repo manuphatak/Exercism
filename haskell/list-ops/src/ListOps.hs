@@ -20,25 +20,31 @@ import           Prelude                 hiding ( length
                                                 )
 
 foldl' :: (b -> a -> b) -> b -> [a] -> b
-foldl' f z xs = error "You need to implement this function."
+foldl' _ z []       = z
+foldl' f z (x : xs) = foldl' f (f z x) xs
 
 foldr :: (a -> b -> b) -> b -> [a] -> b
-foldr f z xs = error "You need to implement this function."
+foldr fn z []       = z
+foldr fn z (x : xs) = fn x (foldr fn z xs)
 
 length :: [a] -> Int
-length xs = error "You need to implement this function."
+length []       = 0
+length (_ : xs) = 1 + length xs
 
 reverse :: [a] -> [a]
-reverse xs = error "You need to implement this function."
+reverse = foldl (flip (:)) []
+
 
 map :: (a -> b) -> [a] -> [b]
-map f xs = error "You need to implement this function."
+map f []       = []
+map f (x : xs) = f x : map f xs
 
 filter :: (a -> Bool) -> [a] -> [a]
-filter p xs = error "You need to implement this function."
+filter _ []       = []
+filter p (x : xs) = if p x then x : filter p xs else filter p xs
 
 (++) :: [a] -> [a] -> [a]
-xs ++ ys = error "You need to implement this function."
+xs ++ ys = foldr (:) ys xs
 
 concat :: [[a]] -> [a]
-concat xss = error "You need to implement this function."
+concat = foldr (++) []
