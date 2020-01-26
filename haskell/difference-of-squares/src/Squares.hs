@@ -9,7 +9,7 @@ difference :: Integral a => a -> a
 difference n = squareOfSum n - sumOfSquares n
 
 squareOfSum :: Integral a => a -> a
-squareOfSum n = sum [1 .. n] ^ 2
+squareOfSum n = (n ^ 2) * (n + 1) ^ 2 `div` 4
 
 sumOfSquares :: Integral a => a -> a
-sumOfSquares n = sum [ i ^ 2 | i <- [1 .. n] ]
+sumOfSquares n = n * (n + 1) * (2 * n + 1) `div` 6

@@ -70,9 +70,9 @@ specs = do
         $          difference (12 :: Integer)
         `shouldBe` (5434 :: Integer)
 
-      {-
-      describe "huge difference" $
-        it "difference (1234567890 :: Integer)" $
-          difference (1234567890 :: Integer)
-          `shouldBe` (580764307309260838625720836817589660 :: Integer)
-      -}
+
+      describe "huge difference"
+        $          it "difference (1234567890 :: Integer)"
+        $          difference (1234567890 :: Integer)
+        `shouldBe` (580764307309260838625720836817589660 :: Integer)
+
