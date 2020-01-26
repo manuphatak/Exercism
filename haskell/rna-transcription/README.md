@@ -13,14 +13,12 @@ guanine (**G**) and uracil (**U**).
 Given a DNA strand, its transcribed RNA strand is formed by replacing
 each nucleotide with its complement:
 
-* `G` -> `C`
-* `C` -> `G`
-* `T` -> `A`
-* `A` -> `U`
+- `G` -> `C`
+- `C` -> `G`
+- `T` -> `A`
+- `A` -> `U`
 
 Given invalid output, your program should return the first invalid character.
-
-
 
 ## Getting Started
 
@@ -58,7 +56,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -72,11 +70,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Hyperphysics [http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html](http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
