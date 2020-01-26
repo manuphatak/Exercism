@@ -82,9 +82,9 @@ specs = do
       $          foldl' (flip (:)) [] "asdf"
       `shouldBe` "fdsa"
     -- Track-specific test
-    -- it "is accumulator-strict (use seq or BangPatterns)"
-    --   $ evaluate (foldl' (flip const) () [throw StrictException, ()])
-    --   `shouldThrow` (== StrictException)
+    it "is accumulator-strict (use seq or BangPatterns)"
+      $ evaluate (foldl' (flip const) () [throw StrictException, ()])
+      `shouldThrow` (== StrictException)
 
   describe "foldr" $ do
     it "of empty list" $ foldr (*) (2 :: Int) [] `shouldBe` 2
