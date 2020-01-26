@@ -3,7 +3,6 @@ module ProteinTranslation
   )
 where
 
-
 proteins :: String -> Maybe [String]
 proteins = Just . takeWhile ("STOP" /=) . map protein . codons
 
@@ -29,7 +28,7 @@ protein "UGG" = "Tryptophan"
 protein "UAA" = "STOP"
 protein "UAG" = "STOP"
 protein "UGA" = "STOP"
-protein _     = error "unknown protein"
+protein _     = error "unknown codon"
 
 
 -- https://codereview.stackexchange.com/questions/48552/split-list-into-groups-of-n-in-haskell
