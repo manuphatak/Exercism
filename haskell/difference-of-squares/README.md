@@ -16,7 +16,6 @@ You are not expected to discover an efficient solution to this yourself from
 first principles; research is allowed, indeed, encouraged. Finding the best
 algorithm for the problem is a key skill in software engineering.
 
-
 ## Getting Started
 
 Please refer to the [installation](https://exercism.io/tracks/haskell/installation)
@@ -53,7 +52,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -67,11 +66,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Problem 6 at Project Euler [http://projecteuler.net/problem=6](http://projecteuler.net/problem=6)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

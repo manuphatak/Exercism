@@ -1,4 +1,9 @@
-module Squares (difference, squareOfSum, sumOfSquares) where
+module Squares
+  ( difference
+  , squareOfSum
+  , sumOfSquares
+  )
+where
 
 difference :: Integral a => a -> a
 difference n = error "You need to implement this function."
