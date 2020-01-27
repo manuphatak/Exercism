@@ -1,18 +1,19 @@
 module Matrix
-    ( Matrix
-    , cols
-    , column
-    , flatten
-    , fromList
-    , fromString
-    , reshape
-    , row
-    , rows
-    , shape
-    , transpose
-    ) where
+  ( Matrix
+  , cols
+  , column
+  , flatten
+  , fromList
+  , fromString
+  , reshape
+  , row
+  , rows
+  , shape
+  , transpose
+  )
+where
 
-import Data.Vector (Vector)
+import           Data.Vector                    ( Vector )
 
 data Matrix a = Dummy deriving (Eq, Show)
 

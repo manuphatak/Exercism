@@ -65,8 +65,6 @@ rectangular, invalid chars are encountered, etc.
 
 shape is (rows, cols)
 
-
-
 ## Getting Started
 
 Please refer to the [installation](https://exercism.io/tracks/haskell/installation)
@@ -103,7 +101,7 @@ the correct compiler version:
 stack setup
 ```
 
-## Running *GHCi*
+## Running _GHCi_
 
 If you want to play with your solution in GHCi, just run the command:
 
@@ -117,11 +115,12 @@ The [exercism/haskell](https://github.com/exercism/haskell) repository on
 GitHub is the home for all of the Haskell exercises.
 
 If you have feedback about an exercise, or want to help implementing a new
-one, head over there and create an issue.  We'll do our best to help you!
+one, head over there and create an issue. We'll do our best to help you!
 
 ## Source
 
 Warmup to the `saddle-points` warmup. [http://jumpstartlab.com](http://jumpstartlab.com)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
