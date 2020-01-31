@@ -1,3 +1,5 @@
+{-# LANGUAGE TupleSections #-}
+
 module DNA
   ( nucleotideCounts
   , Nucleotide(..)
@@ -5,37 +7,24 @@ module DNA
 where
 
 import           Data.Map.Strict                ( Map
+                                                , adjust
                                                 , fromList
-                                                , insertWith
                                                 )
+import           Text.Read                      ( readEither )
+import           Control.Monad                  ( foldM )
 
-import           Data.List
+data Nucleotide = A | C | G | T deriving (Eq, Ord, Read, Enum, Bounded, Show)
 
-data Nucleotide = A | C | G | T deriving (Eq, Ord, Show)
+nucleotideCounts :: String -> Either String (Map Nucleotide Integer)
+nucleotideCounts = foldM nucleotideHit initialCounts
+ where
+  nucleotideHit counts char = flip (adjust succ) counts <$> readNucleotide char
 
-nucleotideCounts :: String -> Either String (Map Nucleotide Int)
-nucleotideCounts input =
-  nucleotideCountsMap <$> (groupCounts . group . sort) input
+readNucleotide :: (Read a) => Char -> Either String a
+readNucleotide = readEither . (: [])
 
-
-nucleotideCountsMap :: [(Nucleotide, Int)] -> Map Nucleotide Int
-nucleotideCountsMap =
-  insertWith (+) T 0
-    . insertWith (+) G 0
-    . insertWith (+) C 0
-    . insertWith (+) A 0
-    . fromList
-
-groupCounts :: [String] -> Either String [(Nucleotide, Int)]
-groupCounts = mapM $ unwrap . ((,) <$> readNucleotide . head <*> length)
-
-readNucleotide :: Char -> Either String Nucleotide
-readNucleotide 'A' = Right A
-readNucleotide 'C' = Right C
-readNucleotide 'G' = Right G
-readNucleotide 'T' = Right T
-readNucleotide c   = Left (c : " is unknown")
-
-unwrap :: (Either l r, b) -> Either l (r, b)
-unwrap (Right r, b) = Right (r, b)
-unwrap (Left  l, _) = Left l
+initialCounts :: (Ord a, Enum a, Bounded a) => Map a Integer
+initialCounts = fromList $ map (, 0) [minBound .. maxBound]
+-- >>> initialCounts :: Map Nucleotide Integer
+-- fromList [(A,0),(C,0),(G,0),(T,0)]
+--
