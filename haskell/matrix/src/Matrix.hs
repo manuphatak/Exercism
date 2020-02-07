@@ -13,36 +13,48 @@ module Matrix
   )
 where
 
-import           Data.Vector                    ( Vector )
+import           Data.Vector                    ( Vector
+                                                , (!)
+                                                )
+import qualified Data.Vector                   as V
 
-data Matrix a = Dummy deriving (Eq, Show)
+type Matrix a = Vector (Vector a)
 
 cols :: Matrix a -> Int
-cols matrix = error "You need to implement this function."
+cols matrix | null matrix = 0
+            | otherwise   = length (V.head matrix)
 
 column :: Int -> Matrix a -> Vector a
-column x matrix = error "You need to implement this function."
+column x = V.map (\v -> v ! pred x)
 
 flatten :: Matrix a -> Vector a
-flatten matrix = error "You need to implement this function."
+flatten = V.foldr1 (V.++)
 
 fromList :: [[a]] -> Matrix a
-fromList xss = error "You need to implement this function."
+fromList = V.fromList . map V.fromList
 
 fromString :: Read a => String -> Matrix a
-fromString xs = error "You need to implement this function."
+fromString = fromList . map (map read . words) . lines
 
 reshape :: (Int, Int) -> Matrix a -> Matrix a
-reshape dimensions matrix = error "You need to implement this function."
+reshape (y, x) = V.take y . chunksOf x . flatten
 
 row :: Int -> Matrix a -> Vector a
-row x matrix = error "You need to implement this function."
+row x matrix = matrix ! pred x
 
 rows :: Matrix a -> Int
-rows matrix = error "You need to implement this function."
+rows = length
 
 shape :: Matrix a -> (Int, Int)
-shape matrix = error "You need to implement this function."
+shape = (,) <$> rows <*> cols
 
 transpose :: Matrix a -> Matrix a
-transpose matrix = error "You need to implement this function."
+transpose matrix = V.unfoldr nextRow 0 where
+  nextRow i | i >= cols matrix = Nothing
+            | otherwise        = Just (V.map (! i) matrix, succ i)
+
+chunksOf :: Int -> Vector a -> Matrix a
+chunksOf n xs | null xs   = V.empty
+              | otherwise = ys `V.cons` chunksOf n zs
+  where (ys, zs) = V.splitAt n xs
+
