@@ -7,10 +7,7 @@ import qualified Data.Set                      as Set
 
 sumOfMultiples :: [Integer] -> Integer -> Integer
 sumOfMultiples factors limit =
-  sum
-    . Set.unions
-    . map (Set.fromDistinctAscList . multiplesUntil limit)
-    $ factors
+  sum . Set.fromList $ factors >>= multiplesUntil limit
 
 multiplesUntil :: (Ord a, Num a) => a -> a -> [a]
 multiplesUntil _     0      = []
