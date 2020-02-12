@@ -7,7 +7,7 @@ import qualified Data.Set                      as Set
 
 sumOfMultiples :: [Integer] -> Integer -> Integer
 sumOfMultiples factors limit =
-  sum . Set.fromList $ factors >>= multiplesUntil limit
+  sum . Set.fromList $ multiplesUntil limit =<< factors
 
 multiplesUntil :: (Ord a, Num a) => a -> a -> [a]
 multiplesUntil _     0      = []
